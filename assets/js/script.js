@@ -39,13 +39,13 @@ document.querySelector("#fetch-button").addEventListener("click", function () {
     .then(function (data) {
       updateResultsArray(cityname, data);
       document.querySelector("#date1").textContent =
-        "Date: " + data.list[5].dt_txt;
+        "Date & Time: " + data.list[5].dt_txt;
       document.querySelector("#temp1").textContent =
-        "Temp: " + data.list[5].main.temp;
+        "Temp: " + data.list[5].main.temp + " \u00B0F";
       document.querySelector("#wind1").textContent =
         "Wind: " + data.list[5].wind.speed;
       document.querySelector("#humid1").textContent =
-        "Humidity: " + data.list[5].main.humidity;
+        "Humidity: " + data.list[5].main.humidity + " %";
       document.querySelector("#descript1").textContent =
         "Description: " + data.list[5].weather[0].description;
 
@@ -55,13 +55,13 @@ document.querySelector("#fetch-button").addEventListener("click", function () {
       ).src = `https://openweathermap.org/img/wn/${iconId1}.png`;
 
       document.querySelector("#date2").textContent =
-        "Date: " + data.list[13].dt_txt;
+        "Date & Time: " + data.list[13].dt_txt;
       document.querySelector("#temp2").textContent =
-        "Temp: " + data.list[13].main.temp;
+        "Temp: " + data.list[13].main.temp + " \u00B0F";
       document.querySelector("#wind2").textContent =
-        "Wind: " + data.list[13].wind.speed;
+        "Wind: " + data.list[13].wind.speed + " mph";
       document.querySelector("#humid2").textContent =
-        "Humidity: " + data.list[13].main.humidity;
+        "Humidity: " + data.list[13].main.humidity + " %";
       document.querySelector("#descript2").textContent =
         "Description: " + data.list[13].weather[0].description;
 
@@ -71,13 +71,13 @@ document.querySelector("#fetch-button").addEventListener("click", function () {
       ).src = `https://openweathermap.org/img/wn/${iconId2}.png`;
 
       document.querySelector("#date3").textContent =
-        "Date: " + data.list[21].dt_txt;
+        "Date & Time: " + data.list[21].dt_txt;
       document.querySelector("#temp3").textContent =
-        "Temp: " + data.list[21].main.temp;
+        "Temp: " + data.list[21].main.temp + " \u00B0F";
       document.querySelector("#wind3").textContent =
-        "Wind: " + data.list[21].wind.speed;
+        "Wind: " + data.list[21].wind.speed + " mph";
       document.querySelector("#humid3").textContent =
-        "Humidity: " + data.list[21].main.humidity;
+        "Humidity: " + data.list[21].main.humidity + " %";
       document.querySelector("#descript3").textContent =
         "Description: " + data.list[21].weather[0].description;
 
@@ -87,13 +87,13 @@ document.querySelector("#fetch-button").addEventListener("click", function () {
       ).src = `https://openweathermap.org/img/wn/${iconId3}.png`;
 
       document.querySelector("#date4").textContent =
-        "Date: " + data.list[29].dt_txt;
+        "Date & Time: " + data.list[29].dt_txt;
       document.querySelector("#temp4").textContent =
-        "Temp: " + data.list[29].main.temp;
+        "Temp: " + data.list[29].main.temp + " \u00B0F";
       document.querySelector("#wind4").textContent =
-        "Wind: " + data.list[29].wind.speed;
+        "Wind: " + data.list[29].wind.speed + " mph";
       document.querySelector("#humid4").textContent =
-        "Humidity: " + data.list[29].main.humidity;
+        "Humidity: " + data.list[29].main.humidity + " %";
       document.querySelector("#descript4").textContent =
         "Description: " + data.list[29].weather[0].description;
 
@@ -103,13 +103,13 @@ document.querySelector("#fetch-button").addEventListener("click", function () {
       ).src = `https://openweathermap.org/img/wn/${iconId4}.png`;
 
       document.querySelector("#date5").textContent =
-        "Date: " + data.list[37].dt_txt;
+        "Date & Time: " + data.list[37].dt_txt;
       document.querySelector("#temp5").textContent =
-        "Temp: " + data.list[37].main.temp;
+        "Temp: " + data.list[37].main.temp + " \u00B0F";
       document.querySelector("#wind5").textContent =
-        "Wind: " + data.list[37].wind.speed;
+        "Wind: " + data.list[37].wind.speed + " mph";
       document.querySelector("#humid5").textContent =
-        "Humidity: " + data.list[37].main.humidity;
+        "Humidity: " + data.list[37].main.humidity + " %";
       document.querySelector("#descript5").textContent =
         "Description: " + data.list[37].weather[0].description;
 
@@ -160,13 +160,13 @@ for (let i = 1; i <= 5; i++) {
         .then(function (data) {
           updateResultsArray(cityname, data);
           document.querySelector("#date1").textContent =
-            "Date: " + data.list[5].dt_txt;
+            "Date & Time: " + data.list[5].dt_txt;
           document.querySelector("#temp1").textContent =
             "Temp: " + data.list[5].main.temp;
           document.querySelector("#wind1").textContent =
-            "Wind: " + data.list[5].wind.speed;
+            "Wind: " + data.list[5].wind.speed + " mph";
           document.querySelector("#humid1").textContent =
-            "Humidity: " + data.list[5].main.humidity;
+            "Humidity: " + data.list[5].main.humidity + " %";
             document.querySelector("#descript1").textContent =
         "Description: " + data.list[5].weather[0].description;
 
@@ -176,13 +176,13 @@ for (let i = 1; i <= 5; i++) {
       ).src = `https://openweathermap.org/img/wn/${iconId1}.png`;
 
           document.querySelector("#date2").textContent =
-            "Date: " + data.list[13].dt_txt;
+            "Date & Time: " + data.list[13].dt_txt;
           document.querySelector("#temp2").textContent =
             "Temp: " + data.list[13].main.temp;
           document.querySelector("#wind2").textContent =
-            "Wind: " + data.list[13].wind.speed;
+            "Wind: " + data.list[13].wind.speed + " mph";
           document.querySelector("#humid2").textContent =
-            "Humidity: " + data.list[13].main.humidity;
+            "Humidity: " + data.list[13].main.humidity + " %";
             document.querySelector("#descript2").textContent =
         "Description: " + data.list[13].weather[0].description;
 
@@ -192,13 +192,13 @@ for (let i = 1; i <= 5; i++) {
       ).src = `https://openweathermap.org/img/wn/${iconId2}.png`;
 
           document.querySelector("#date3").textContent =
-            "Date: " + data.list[21].dt_txt;
+            "Date & Time: " + data.list[21].dt_txt;
           document.querySelector("#temp3").textContent =
             "Temp: " + data.list[21].main.temp;
           document.querySelector("#wind3").textContent =
-            "Wind: " + data.list[21].wind.speed;
+            "Wind: " + data.list[21].wind.speed + " mph";
           document.querySelector("#humid3").textContent =
-            "Humidity: " + data.list[21].main.humidity;
+            "Humidity: " + data.list[21].main.humidity + " %";
             document.querySelector("#descript3").textContent =
         "Description: " + data.list[21].weather[0].description;
 
@@ -208,13 +208,13 @@ for (let i = 1; i <= 5; i++) {
       ).src = `https://openweathermap.org/img/wn/${iconId3}.png`;
 
           document.querySelector("#date4").textContent =
-            "Date: " + data.list[29].dt_txt;
+            "Date & Time: " + data.list[29].dt_txt;
           document.querySelector("#temp4").textContent =
             "Temp: " + data.list[29].main.temp;
           document.querySelector("#wind4").textContent =
-            "Wind: " + data.list[29].wind.speed;
+            "Wind: " + data.list[29].wind.speed + " mph";
           document.querySelector("#humid4").textContent =
-            "Humidity: " + data.list[29].main.humidity;
+            "Humidity: " + data.list[29].main.humidity + " %";
             document.querySelector("#descript4").textContent =
         "Description: " + data.list[29].weather[0].description;
 
@@ -224,13 +224,13 @@ for (let i = 1; i <= 5; i++) {
       ).src = `https://openweathermap.org/img/wn/${iconId4}.png`;
 
           document.querySelector("#date5").textContent =
-            "Date: " + data.list[37].dt_txt;
+            "Date & Time: " + data.list[37].dt_txt;
           document.querySelector("#temp5").textContent =
             "Temp: " + data.list[37].main.temp;
           document.querySelector("#wind5").textContent =
-            "Wind: " + data.list[37].wind.speed;
+            "Wind: " + data.list[37].wind.speed + " mph";
           document.querySelector("#humid5").textContent =
-            "Humidity: " + data.list[37].main.humidity;
+            "Humidity: " + data.list[37].main.humidity + " %";
             document.querySelector("#descript5").textContent =
         "Description: " + data.list[37].weather[0].description;
 
