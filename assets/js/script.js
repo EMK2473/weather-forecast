@@ -25,6 +25,7 @@ function updateButtonsAndLocalStorage() {
 document.querySelector("#fetch-button").addEventListener("click", function () {
   let citynameInput = document.querySelector("#cityname");
   let cityname = citynameInput.value;
+  
   fetch(
     `https://api.openweathermap.org/data/2.5/forecast?q=${cityname}&appid=1e27d7859898089c77e02a338285d98b&units=imperial`,
     {
@@ -38,6 +39,12 @@ document.querySelector("#fetch-button").addEventListener("click", function () {
     })
     .then(function (data) {
       updateResultsArray(cityname, data);
+      let iconId1 = data.list[5].weather[0].icon;
+      let iconId2 = data.list[13].weather[0].icon;
+      let iconId3 = data.list[21].weather[0].icon;
+      let iconId4 = data.list[29].weather[0].icon;
+      let iconId5 = data.list[29].weather[0].icon;
+
       document.querySelector("#date1").textContent =
         "Date & Time: " + data.list[5].dt_txt;
       document.querySelector("#temp1").textContent =
@@ -49,7 +56,6 @@ document.querySelector("#fetch-button").addEventListener("click", function () {
       document.querySelector("#descript1").textContent =
         "Description: " + data.list[5].weather[0].description;
 
-      let iconId1 = data.list[5].weather[0].icon;
       document.querySelector(
         '[data-icon-id="icon1"]'
       ).src = `https://openweathermap.org/img/wn/${iconId1}.png`;
@@ -65,7 +71,6 @@ document.querySelector("#fetch-button").addEventListener("click", function () {
       document.querySelector("#descript2").textContent =
         "Description: " + data.list[13].weather[0].description;
 
-      let iconId2 = data.list[13].weather[0].icon;
       document.querySelector(
         '[data-icon-id="icon2"]'
       ).src = `https://openweathermap.org/img/wn/${iconId2}.png`;
@@ -81,7 +86,6 @@ document.querySelector("#fetch-button").addEventListener("click", function () {
       document.querySelector("#descript3").textContent =
         "Description: " + data.list[21].weather[0].description;
 
-      let iconId3 = data.list[21].weather[0].icon;
       document.querySelector(
         '[data-icon-id="icon3"]'
       ).src = `https://openweathermap.org/img/wn/${iconId3}.png`;
@@ -97,7 +101,6 @@ document.querySelector("#fetch-button").addEventListener("click", function () {
       document.querySelector("#descript4").textContent =
         "Description: " + data.list[29].weather[0].description;
 
-      let iconId4 = data.list[29].weather[0].icon;
       document.querySelector(
         '[data-icon-id="icon4"]'
       ).src = `https://openweathermap.org/img/wn/${iconId4}.png`;
@@ -113,7 +116,6 @@ document.querySelector("#fetch-button").addEventListener("click", function () {
       document.querySelector("#descript5").textContent =
         "Description: " + data.list[37].weather[0].description;
 
-      let iconId5 = data.list[29].weather[0].icon;
       document.querySelector(
         '[data-icon-id="icon5"]'
       ).src = `https://openweathermap.org/img/wn/${iconId5}.png`;
@@ -130,6 +132,8 @@ document.querySelector("#fetch-button").addEventListener("click", function () {
           return response.json();
         })
         .then(function (data) {
+        //   document.querySelector("#date").textContent =
+        // "Date & Time: " + data.dt_txt;
           document.querySelector("#temp").textContent =
             "Temp: " + data.main.temp + " \u00B0F";
           document.querySelector("#wind").textContent =
@@ -159,6 +163,11 @@ for (let i = 1; i <= 5; i++) {
         })
         .then(function (data) {
           updateResultsArray(cityname, data);
+    let iconId1 = data.list[5].weather[0].icon;
+    let iconId2 = data.list[13].weather[0].icon;
+    let iconId3 = data.list[21].weather[0].icon;
+    let iconId4 = data.list[29].weather[0].icon;
+    let iconId5 = data.list[37].weather[0].icon;
           document.querySelector("#date1").textContent =
             "Date & Time: " + data.list[5].dt_txt;
           document.querySelector("#temp1").textContent =
@@ -170,7 +179,7 @@ for (let i = 1; i <= 5; i++) {
             document.querySelector("#descript1").textContent =
         "Description: " + data.list[5].weather[0].description;
 
-            let iconId1 = data.list[5].weather[0].icon;
+            
       document.querySelector(
         '[data-icon-id="icon1"]'
       ).src = `https://openweathermap.org/img/wn/${iconId1}.png`;
@@ -185,8 +194,6 @@ for (let i = 1; i <= 5; i++) {
             "Humidity: " + data.list[13].main.humidity + " %";
             document.querySelector("#descript2").textContent =
         "Description: " + data.list[13].weather[0].description;
-
-            let iconId2 = data.list[13].weather[0].icon;
       document.querySelector(
         '[data-icon-id="icon2"]'
       ).src = `https://openweathermap.org/img/wn/${iconId2}.png`;
@@ -201,8 +208,6 @@ for (let i = 1; i <= 5; i++) {
             "Humidity: " + data.list[21].main.humidity + " %";
             document.querySelector("#descript3").textContent =
         "Description: " + data.list[21].weather[0].description;
-
-            let iconId3 = data.list[21].weather[0].icon;
       document.querySelector(
         '[data-icon-id="icon3"]'
       ).src = `https://openweathermap.org/img/wn/${iconId3}.png`;
@@ -217,8 +222,6 @@ for (let i = 1; i <= 5; i++) {
             "Humidity: " + data.list[29].main.humidity + " %";
             document.querySelector("#descript4").textContent =
         "Description: " + data.list[29].weather[0].description;
-
-            let iconId4 = data.list[29].weather[0].icon;
       document.querySelector(
         '[data-icon-id="icon4"]'
       ).src = `https://openweathermap.org/img/wn/${iconId4}.png`;
@@ -233,8 +236,6 @@ for (let i = 1; i <= 5; i++) {
             "Humidity: " + data.list[37].main.humidity + " %";
             document.querySelector("#descript5").textContent =
         "Description: " + data.list[37].weather[0].description;
-
-            let iconId5 = data.list[37].weather[0].icon;
       document.querySelector(
         '[data-icon-id="icon5"]'
       ).src = `https://openweathermap.org/img/wn/${iconId5}.png`;
