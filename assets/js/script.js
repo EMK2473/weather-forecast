@@ -25,7 +25,7 @@ function updateButtonsAndLocalStorage() {
 document.querySelector("#fetch-button").addEventListener("click", function () {
   let citynameInput = document.querySelector("#cityname");
   let cityname = citynameInput.value;
-  
+
   fetch(
     `https://api.openweathermap.org/data/2.5/forecast?q=${cityname}&appid=1e27d7859898089c77e02a338285d98b&units=imperial`,
     {
@@ -132,19 +132,19 @@ document.querySelector("#fetch-button").addEventListener("click", function () {
           return response.json();
         })
         .then(function (data) {
-        //   document.querySelector("#date").textContent =
-        // "Date & Time: " + data.dt_txt;
+          //   document.querySelector("#date").textContent =
+          // "Date & Time: " + data.dt_txt;
           document.querySelector("#temp").textContent =
             "Temp: " + data.main.temp + " \u00B0F";
           document.querySelector("#wind").textContent =
             "Wind: " + data.wind.speed + " mph";
           document.querySelector("#humid").textContent =
             "Humidity: " + data.main.humidity + " %";
-            let iconId = data.weather[0].icon;
-            document.querySelector(
-              '[data-icon-id="icon"]'
-            ).src = `https://openweathermap.org/img/wn/${iconId}.png`;
-console.log(data)
+          let iconId = data.weather[0].icon;
+          document.querySelector(
+            '[data-icon-id="icon"]'
+          ).src = `https://openweathermap.org/img/wn/${iconId}.png`;
+          console.log(data);
         });
       citynameInput.value = "";
     });
@@ -154,6 +154,33 @@ for (let i = 1; i <= 5; i++) {
   let resultButton = document.querySelector(`#result${i}`);
   resultButton.addEventListener("click", function () {
     let cityname = localStorage.getItem(`result${i}`);
+    fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=1e27d7859898089c77e02a338285d98b&units=imperial`,
+      {
+        method: "GET",
+        credentials: "same-origin",
+        redirect: "follow",
+      }
+    )
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        //   document.querySelector("#date").textContent =
+        // "Date & Time: " + data.dt_txt;
+        document.querySelector("#temp").textContent =
+          "Temp: " + data.main.temp + " \u00B0F";
+        document.querySelector("#wind").textContent =
+          "Wind: " + data.wind.speed + " mph";
+        document.querySelector("#humid").textContent =
+          "Humidity: " + data.main.humidity + " %";
+        let iconId = data.weather[0].icon;
+        document.querySelector(
+          '[data-icon-id="icon"]'
+        ).src = `https://openweathermap.org/img/wn/${iconId}.png`;
+        console.log(data);
+      });
+    citynameInput.value = "";
     if (cityname) {
       fetch(
         `https://api.openweathermap.org/data/2.5/forecast?q=${cityname}&appid=1e27d7859898089c77e02a338285d98b&units=imperial`
@@ -163,11 +190,11 @@ for (let i = 1; i <= 5; i++) {
         })
         .then(function (data) {
           updateResultsArray(cityname, data);
-    let iconId1 = data.list[5].weather[0].icon;
-    let iconId2 = data.list[13].weather[0].icon;
-    let iconId3 = data.list[21].weather[0].icon;
-    let iconId4 = data.list[29].weather[0].icon;
-    let iconId5 = data.list[37].weather[0].icon;
+          let iconId1 = data.list[5].weather[0].icon;
+          let iconId2 = data.list[13].weather[0].icon;
+          let iconId3 = data.list[21].weather[0].icon;
+          let iconId4 = data.list[29].weather[0].icon;
+          let iconId5 = data.list[37].weather[0].icon;
           document.querySelector("#date1").textContent =
             "Date & Time: " + data.list[5].dt_txt;
           document.querySelector("#temp1").textContent =
@@ -176,13 +203,12 @@ for (let i = 1; i <= 5; i++) {
             "Wind: " + data.list[5].wind.speed + " mph";
           document.querySelector("#humid1").textContent =
             "Humidity: " + data.list[5].main.humidity + " %";
-            document.querySelector("#descript1").textContent =
-        "Description: " + data.list[5].weather[0].description;
+          document.querySelector("#descript1").textContent =
+            "Description: " + data.list[5].weather[0].description;
 
-            
-      document.querySelector(
-        '[data-icon-id="icon1"]'
-      ).src = `https://openweathermap.org/img/wn/${iconId1}.png`;
+          document.querySelector(
+            '[data-icon-id="icon1"]'
+          ).src = `https://openweathermap.org/img/wn/${iconId1}.png`;
 
           document.querySelector("#date2").textContent =
             "Date & Time: " + data.list[13].dt_txt;
@@ -192,11 +218,11 @@ for (let i = 1; i <= 5; i++) {
             "Wind: " + data.list[13].wind.speed + " mph";
           document.querySelector("#humid2").textContent =
             "Humidity: " + data.list[13].main.humidity + " %";
-            document.querySelector("#descript2").textContent =
-        "Description: " + data.list[13].weather[0].description;
-      document.querySelector(
-        '[data-icon-id="icon2"]'
-      ).src = `https://openweathermap.org/img/wn/${iconId2}.png`;
+          document.querySelector("#descript2").textContent =
+            "Description: " + data.list[13].weather[0].description;
+          document.querySelector(
+            '[data-icon-id="icon2"]'
+          ).src = `https://openweathermap.org/img/wn/${iconId2}.png`;
 
           document.querySelector("#date3").textContent =
             "Date & Time: " + data.list[21].dt_txt;
@@ -206,11 +232,11 @@ for (let i = 1; i <= 5; i++) {
             "Wind: " + data.list[21].wind.speed + " mph";
           document.querySelector("#humid3").textContent =
             "Humidity: " + data.list[21].main.humidity + " %";
-            document.querySelector("#descript3").textContent =
-        "Description: " + data.list[21].weather[0].description;
-      document.querySelector(
-        '[data-icon-id="icon3"]'
-      ).src = `https://openweathermap.org/img/wn/${iconId3}.png`;
+          document.querySelector("#descript3").textContent =
+            "Description: " + data.list[21].weather[0].description;
+          document.querySelector(
+            '[data-icon-id="icon3"]'
+          ).src = `https://openweathermap.org/img/wn/${iconId3}.png`;
 
           document.querySelector("#date4").textContent =
             "Date & Time: " + data.list[29].dt_txt;
@@ -220,11 +246,11 @@ for (let i = 1; i <= 5; i++) {
             "Wind: " + data.list[29].wind.speed + " mph";
           document.querySelector("#humid4").textContent =
             "Humidity: " + data.list[29].main.humidity + " %";
-            document.querySelector("#descript4").textContent =
-        "Description: " + data.list[29].weather[0].description;
-      document.querySelector(
-        '[data-icon-id="icon4"]'
-      ).src = `https://openweathermap.org/img/wn/${iconId4}.png`;
+          document.querySelector("#descript4").textContent =
+            "Description: " + data.list[29].weather[0].description;
+          document.querySelector(
+            '[data-icon-id="icon4"]'
+          ).src = `https://openweathermap.org/img/wn/${iconId4}.png`;
 
           document.querySelector("#date5").textContent =
             "Date & Time: " + data.list[37].dt_txt;
@@ -234,11 +260,11 @@ for (let i = 1; i <= 5; i++) {
             "Wind: " + data.list[37].wind.speed + " mph";
           document.querySelector("#humid5").textContent =
             "Humidity: " + data.list[37].main.humidity + " %";
-            document.querySelector("#descript5").textContent =
-        "Description: " + data.list[37].weather[0].description;
-      document.querySelector(
-        '[data-icon-id="icon5"]'
-      ).src = `https://openweathermap.org/img/wn/${iconId5}.png`;
+          document.querySelector("#descript5").textContent =
+            "Description: " + data.list[37].weather[0].description;
+          document.querySelector(
+            '[data-icon-id="icon5"]'
+          ).src = `https://openweathermap.org/img/wn/${iconId5}.png`;
 
           document.querySelector("#cityname").value = cityname;
         });
@@ -247,7 +273,6 @@ for (let i = 1; i <= 5; i++) {
 }
 
 // i think i need to nest this statement in a .then to return this when i click on a city name previous search
-
 
 // fetch(
 //   `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=1e27d7859898089c77e02a338285d98b&units=imperial`,
