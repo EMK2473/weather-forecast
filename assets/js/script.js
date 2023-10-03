@@ -271,28 +271,3 @@ for (let i = 1; i <= 5; i++) {
     }
   });
 }
-
-// i think i need to nest this statement in a .then to return this when i click on a city name previous search
-
-// fetch(
-//   `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=1e27d7859898089c77e02a338285d98b&units=imperial`,
-//   {
-//     method: "GET",
-//     credentials: "same-origin",
-//     redirect: "follow",
-//   }
-// )
-//   .then(function (response) {
-//     return response.json();
-//   })
-//   .then(function (data) {
-//     document.querySelector("#temp").textContent =
-//       "Temp: " + data.main.temp + " \u00B0F";
-//     document.querySelector("#wind").textContent =
-//       "Wind: " + data.wind.speed + " mph";
-//     document.querySelector("#humid").textContent =
-//       "Humidity: " + data.main.humidity + " %";
-//       let iconId = data.weather[0].icon;
-//       document.querySelector(
-//         '[data-icon-id="icon"]'
-//       ).src = `https://openweathermap.org/img/wn/${iconId}.png`;
